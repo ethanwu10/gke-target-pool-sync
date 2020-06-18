@@ -9,7 +9,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 go build -v
 
-FROM scratch as run
+FROM gcr.io/distroless/static:latest as run
 
 COPY --from=builder /go/src/gke-target-pool-sync/gke-target-pool-sync .
 
